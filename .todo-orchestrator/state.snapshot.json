@@ -1,0 +1,811 @@
+{
+  "generated_at": "2026-10-06T17:21:18Z",
+  "project": {
+    "configuration": {
+      "busy_timeout_ms": 5000,
+      "claim_lease_seconds": 7200,
+      "context_budget_bytes": 12000,
+      "legacy_review_days": {
+        "blocked": 7,
+        "in_progress": 3,
+        "planned": 3,
+        "stale": 3
+      },
+      "resource_lease_seconds": 300,
+      "workflow_front_door": "project-control"
+    },
+    "created_at": "2026-10-06T14:17:31Z",
+    "project_name": "scvelo",
+    "project_uuid": "b6b1bce7-d113-4646-9d74-062156d3cbac",
+    "schema_version": 2
+  },
+  "project_revision": 21,
+  "schema_version": 2,
+  "semantic_context": {
+    "declarations": [],
+    "invalidations": [],
+    "orientation": [],
+    "project_revision": 21,
+    "project_uuid": "b6b1bce7-d113-4646-9d74-062156d3cbac",
+    "skill_uses": []
+  },
+  "snapshot_version": 3,
+  "tables": {
+    "barrier_requirements": [],
+    "barriers": [],
+    "checkpoint_gates": [],
+    "checkpoint_interfaces": [],
+    "checkpoints": [],
+    "decisions": [],
+    "events": [
+      {
+        "actor_session_id": null,
+        "entity_id": "b6b1bce7-d113-4646-9d74-062156d3cbac",
+        "entity_type": "project",
+        "event_type": "project.bootstrapped",
+        "payload_json": "{\"project_name\": \"scvelo\"}",
+        "revision": 1,
+        "seq": 1,
+        "timestamp": "2026-10-06T14:17:31Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "b6b1bce7-d113-4646-9d74-062156d3cbac",
+        "entity_type": "project",
+        "event_type": "plan.applied",
+        "payload_json": "{\"plan_digest\": \"8e79bf20d68d1519fec9fdf59e821574e1cc65e0760c9833131f45fb7775d34c\", \"source\": \"project-control\"}",
+        "revision": 2,
+        "seq": 2,
+        "timestamp": "2026-10-06T16:10:33Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "4e4141dc-a92b-40fc-a85f-0867e4f4d924",
+        "entity_type": "workflow_workspace",
+        "event_type": "workflow_workspace_reserved",
+        "payload_json": "{\"base_commit\": \"f8789d9266ed3389466a4637c3a7d68a1e9b103e\", \"lane_id\": \"SCV-MOM-PRODUCER\", \"mode\": \"isolated_merge\", \"run_id\": \"SCV-MOM-PROBE-RUN-1\"}",
+        "revision": 3,
+        "seq": 3,
+        "timestamp": "2026-10-06T16:13:44Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "4e4141dc-a92b-40fc-a85f-0867e4f4d924",
+        "entity_type": "workflow_workspace",
+        "event_type": "workflow_workspace_created",
+        "payload_json": "{\"base_commit\": \"f8789d9266ed3389466a4637c3a7d68a1e9b103e\", \"lane_id\": \"SCV-MOM-PRODUCER\", \"mode\": \"isolated_merge\", \"run_id\": \"SCV-MOM-PROBE-RUN-1\"}",
+        "revision": 4,
+        "seq": 4,
+        "timestamp": "2026-10-06T16:13:45Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "SCV-MOM-PRODUCER",
+        "entity_type": "workflow_dispatch",
+        "event_type": "workflow.next_task",
+        "payload_json": "{\"lane_id\": \"SCV-MOM-PRODUCER\", \"run_id\": \"SCV-MOM-PROBE-RUN-1\", \"status\": \"claimed\", \"task_id\": \"SCV-MOM-PROBE-01\"}",
+        "revision": 5,
+        "seq": 5,
+        "timestamp": "2026-10-06T16:13:52Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "442db602-412f-4f3a-be32-571505bbaffb",
+        "entity_type": "workflow_workspace",
+        "event_type": "workflow_workspace_reserved",
+        "payload_json": "{\"base_commit\": \"f8789d9266ed3389466a4637c3a7d68a1e9b103e\", \"lane_id\": \"SCV-MOM-INTEGRATOR\", \"mode\": \"exclusive\", \"run_id\": \"SCV-MOM-PROBE-RUN-1\"}",
+        "revision": 6,
+        "seq": 6,
+        "timestamp": "2026-10-06T17:17:29Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "442db602-412f-4f3a-be32-571505bbaffb",
+        "entity_type": "workflow_workspace",
+        "event_type": "workflow_workspace_created",
+        "payload_json": "{\"base_commit\": \"f8789d9266ed3389466a4637c3a7d68a1e9b103e\", \"lane_id\": \"SCV-MOM-INTEGRATOR\", \"mode\": \"exclusive\", \"run_id\": \"SCV-MOM-PROBE-RUN-1\"}",
+        "revision": 7,
+        "seq": 7,
+        "timestamp": "2026-10-06T17:17:30Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "15887fec-e866-4f7b-b9a3-5630dabb70c0",
+        "entity_type": "workflow_patch_artifact",
+        "event_type": "workflow_patch_artifact_published",
+        "payload_json": "{\"content_hash\": \"4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54\", \"kind\": \"commit\", \"task_id\": \"SCV-MOM-PROBE-01\", \"workspace_id\": \"4e4141dc-a92b-40fc-a85f-0867e4f4d924\"}",
+        "revision": 8,
+        "seq": 8,
+        "timestamp": "2026-10-06T17:19:55Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "2f7fd6cf-158b-4406-870c-1264655a228a",
+        "entity_type": "workflow_integration_queue",
+        "event_type": "workflow_artifact_queued",
+        "payload_json": "{\"artifact_id\": \"15887fec-e866-4f7b-b9a3-5630dabb70c0\", \"integration_task_id\": \"SCV-MOM-PROBE-INTEGRATE\", \"integrator_lane_id\": \"SCV-MOM-INTEGRATOR\"}",
+        "revision": 9,
+        "seq": 9,
+        "timestamp": "2026-10-06T17:19:55Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "SCV-MOM-PROBE-01",
+        "entity_type": "task",
+        "event_type": "task.completed",
+        "payload_json": "{\"completion_revision\": 10, \"disposition\": \"validated\", \"reached_checkpoints\": []}",
+        "revision": 10,
+        "seq": 10,
+        "timestamp": "2026-10-06T17:19:55Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "SCV-MOM-INTEGRATOR",
+        "entity_type": "workflow_dispatch",
+        "event_type": "workflow.next_task",
+        "payload_json": "{\"lane_id\": \"SCV-MOM-INTEGRATOR\", \"run_id\": \"SCV-MOM-PROBE-RUN-1\", \"status\": \"claimed\", \"task_id\": \"SCV-MOM-PROBE-INTEGRATE\"}",
+        "revision": 11,
+        "seq": 11,
+        "timestamp": "2026-10-06T17:20:41Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "cf37ddb8-2425-4d43-95ac-c59efcaf15c3",
+        "entity_type": "gate_binding",
+        "event_type": "workflow.gates.bound",
+        "payload_json": "{\"gate_count\": 1}",
+        "revision": 12,
+        "seq": 12,
+        "timestamp": "2026-10-06T17:20:57Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "2f7fd6cf-158b-4406-870c-1264655a228a",
+        "entity_type": "workflow_integration_queue",
+        "event_type": "workflow_integration_reserved",
+        "payload_json": "{\"state\": \"applying\"}",
+        "revision": 13,
+        "seq": 13,
+        "timestamp": "2026-10-06T17:20:57Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "2f7fd6cf-158b-4406-870c-1264655a228a",
+        "entity_type": "workflow_integration_queue",
+        "event_type": "workflow_integration_applied",
+        "payload_json": "{\"conflict_paths\": [], \"state\": \"awaiting_gates\"}",
+        "revision": 14,
+        "seq": 14,
+        "timestamp": "2026-10-06T17:20:57Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "SCV-MOM-INTEGRATE-HARNESS-UNIT",
+        "entity_type": "gate",
+        "event_type": "gate.started",
+        "payload_json": "{\"gate_id\": \"SCV-MOM-INTEGRATE-HARNESS-UNIT\"}",
+        "revision": 15,
+        "seq": 15,
+        "timestamp": "2026-10-06T17:20:57Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "SCV-MOM-INTEGRATE-HARNESS-UNIT",
+        "entity_type": "gate",
+        "event_type": "gate.completed",
+        "payload_json": "{\"evidence_id\": \"c7d3297f-816d-4c1a-9464-073a50ac53b7\", \"status\": \"passed\", \"valid\": true}",
+        "revision": 16,
+        "seq": 16,
+        "timestamp": "2026-10-06T17:21:02Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "2f7fd6cf-158b-4406-870c-1264655a228a",
+        "entity_type": "workflow_integration_queue",
+        "event_type": "workflow_integration_finalization_reserved",
+        "payload_json": "{\"gate_count\": 1, \"source_identity\": \"4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54\"}",
+        "revision": 17,
+        "seq": 17,
+        "timestamp": "2026-10-06T17:21:02Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "2f7fd6cf-158b-4406-870c-1264655a228a",
+        "entity_type": "workflow_integration_queue",
+        "event_type": "workflow_post_merge_gates_recorded",
+        "payload_json": "{\"gate_count\": 1, \"source_identity\": \"4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54\", \"state\": \"integrated\"}",
+        "revision": 18,
+        "seq": 18,
+        "timestamp": "2026-10-06T17:21:02Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "SCV-MOM-INTEGRATE-HARNESS-UNIT",
+        "entity_type": "gate",
+        "event_type": "gate.started",
+        "payload_json": "{\"gate_id\": \"SCV-MOM-INTEGRATE-HARNESS-UNIT\"}",
+        "revision": 19,
+        "seq": 19,
+        "timestamp": "2026-10-06T17:21:14Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "SCV-MOM-INTEGRATE-HARNESS-UNIT",
+        "entity_type": "gate",
+        "event_type": "gate.completed",
+        "payload_json": "{\"evidence_id\": \"67a5ae22-3c15-4b59-8603-437bbfbb76c9\", \"status\": \"passed\", \"valid\": true}",
+        "revision": 20,
+        "seq": 20,
+        "timestamp": "2026-10-06T17:21:18Z"
+      },
+      {
+        "actor_session_id": null,
+        "entity_id": "SCV-MOM-PROBE-INTEGRATE",
+        "entity_type": "task",
+        "event_type": "task.completed",
+        "payload_json": "{\"completion_revision\": 21, \"disposition\": \"validated\", \"reached_checkpoints\": []}",
+        "revision": 21,
+        "seq": 21,
+        "timestamp": "2026-10-06T17:21:18Z"
+      }
+    ],
+    "evidence": [
+      {
+        "checkpoint_id": null,
+        "claim_id": null,
+        "content_hash": null,
+        "created_at": "2026-10-06T17:21:18Z",
+        "gate_id": "SCV-MOM-INTEGRATE-HARNESS-UNIT",
+        "id": "67a5ae22-3c15-4b59-8603-437bbfbb76c9",
+        "kind": "command",
+        "metadata_json": "{\"argv\": [\"/tmp/moments-probe-20261006/venv/bin/python\", \"-m\", \"unittest\", \"discover\", \"-s\", \".\", \"-p\", \"test_harness.py\", \"-v\"], \"environment\": {}, \"expected_exit_code\": 0, \"input_fingerprint\": \"95fa4c6f324211d796e372f2671c792307cd74d7344c62591cdf80d19b3bd076\", \"inputs\": {\"command_contract\": {\"argv\": [\"/tmp/moments-probe-20261006/venv/bin/python\", \"-m\", \"unittest\", \"discover\", \"-s\", \".\", \"-p\", \"test_harness.py\", \"-v\"], \"cwd\": \"probes/native_moments\", \"env\": {\"MPLCONFIGDIR\": \"/tmp/moments-probe-20261006/mpl\", \"NUMBA_CACHE_DIR\": \"/tmp/moments-probe-20261006/numba\", \"PYTHONDONTWRITEBYTECODE\": \"1\"}, \"timeout\": 900}, \"diff_fingerprint\": \"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\", \"dirty_paths\": [], \"files\": [{\"path\": \"probes/native_moments/harness.py\", \"sha256\": \"6224617ad2f14661a9623cc5c0f896bed1f3a095cd959cfd2f3a31f89e62bf5d\"}, {\"path\": \"probes/native_moments/report.py\", \"sha256\": \"fe4632708f39c3e5f1affa5459c4eb72f4f416769d51314003785e2294f7d228\"}, {\"path\": \"probes/native_moments/test_harness.py\", \"sha256\": \"a8e4fd12199a921892cb0a40fa1e82df169e7d556f13965d2aec0c18c1ff6fcf\"}], \"interfaces\": [], \"recorded_git_head\": \"18aa190ee1cbf2e450c0581d34cebda14849ccb8\", \"static_path\": null}, \"locks\": [], \"resources\": [], \"returncode\": 0, \"source_identity\": \"4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54\", \"started_revision\": 19, \"workspace_path\": \"/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/workflow-workspaces/scv-mom-integrator\"}",
+        "path": "/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/evidence/67a5ae22-3c15-4b59-8603-437bbfbb76c9",
+        "revision": 20,
+        "status": "passed"
+      },
+      {
+        "checkpoint_id": null,
+        "claim_id": null,
+        "content_hash": null,
+        "created_at": "2026-10-06T17:21:02Z",
+        "gate_id": "SCV-MOM-INTEGRATE-HARNESS-UNIT",
+        "id": "c7d3297f-816d-4c1a-9464-073a50ac53b7",
+        "kind": "command",
+        "metadata_json": "{\"argv\": [\"/tmp/moments-probe-20261006/venv/bin/python\", \"-m\", \"unittest\", \"discover\", \"-s\", \".\", \"-p\", \"test_harness.py\", \"-v\"], \"environment\": {}, \"expected_exit_code\": 0, \"input_fingerprint\": \"95fa4c6f324211d796e372f2671c792307cd74d7344c62591cdf80d19b3bd076\", \"inputs\": {\"command_contract\": {\"argv\": [\"/tmp/moments-probe-20261006/venv/bin/python\", \"-m\", \"unittest\", \"discover\", \"-s\", \".\", \"-p\", \"test_harness.py\", \"-v\"], \"cwd\": \"probes/native_moments\", \"env\": {\"MPLCONFIGDIR\": \"/tmp/moments-probe-20261006/mpl\", \"NUMBA_CACHE_DIR\": \"/tmp/moments-probe-20261006/numba\", \"PYTHONDONTWRITEBYTECODE\": \"1\"}, \"timeout\": 900}, \"diff_fingerprint\": \"e9f42ef842a4bd0df07957cf79311c6dc0c4985b38f26c5d9a85c359848d6602\", \"dirty_paths\": [\".gitignore\", \"docs/native-moments-probe.md\", \"probes/native_moments/harness.py\", \"probes/native_moments/report.py\", \"probes/native_moments/test_harness.py\"], \"files\": [{\"path\": \"probes/native_moments/harness.py\", \"sha256\": \"6224617ad2f14661a9623cc5c0f896bed1f3a095cd959cfd2f3a31f89e62bf5d\"}, {\"path\": \"probes/native_moments/report.py\", \"sha256\": \"fe4632708f39c3e5f1affa5459c4eb72f4f416769d51314003785e2294f7d228\"}, {\"path\": \"probes/native_moments/test_harness.py\", \"sha256\": \"a8e4fd12199a921892cb0a40fa1e82df169e7d556f13965d2aec0c18c1ff6fcf\"}], \"interfaces\": [], \"recorded_git_head\": \"f8789d9266ed3389466a4637c3a7d68a1e9b103e\", \"static_path\": null}, \"locks\": [], \"resources\": [], \"returncode\": 0, \"source_identity\": \"4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54\", \"started_revision\": 15, \"workspace_path\": \"/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/workflow-workspaces/scv-mom-integrator\"}",
+        "path": "/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/evidence/c7d3297f-816d-4c1a-9464-073a50ac53b7",
+        "revision": 16,
+        "status": "passed"
+      }
+    ],
+    "gates": [
+      {
+        "checkpoint_id": null,
+        "config_json": "{\"argv\": [\"/tmp/moments-probe-20261006/venv/bin/python\", \"-m\", \"unittest\", \"discover\", \"-s\", \".\", \"-p\", \"test_harness.py\", \"-v\"], \"cwd\": \"probes/native_moments\", \"env\": {\"MPLCONFIGDIR\": \"/tmp/moments-probe-20261006/mpl\", \"NUMBA_CACHE_DIR\": \"/tmp/moments-probe-20261006/numba\", \"PYTHONDONTWRITEBYTECODE\": \"1\"}, \"input_paths\": [\"probes/native_moments/harness.py\", \"probes/native_moments/report.py\", \"probes/native_moments/test_harness.py\"], \"timeout\": 900}",
+        "id": "SCV-MOM-INTEGRATE-HARNESS-UNIT",
+        "input_fingerprint": "95fa4c6f324211d796e372f2671c792307cd74d7344c62591cdf80d19b3bd076",
+        "last_run_at": "2026-10-06T17:21:18Z",
+        "required": 1,
+        "revision": 20,
+        "status": "passed",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE",
+        "type": "command",
+        "valid": 1
+      }
+    ],
+    "handoffs": [
+      {
+        "claim_id": null,
+        "created_at": "2026-10-06T17:19:55Z",
+        "id": "1aa44f0b-133c-45b6-a6b0-1edf199ec27e",
+        "kind": "complete",
+        "note": "Three real fixtures and both final independent-degree32 synthetic cases passed fixed gates; unchanged deterministic downstream masks identical. Reviewed source committed, with generated runtime evidence ignored and preserved. Evidence /home/tumlinson/data/design-probes/native-moments-20261006. Delivery stays isolated to preserve concurrent Cellerator work.",
+        "payload_json": "{\"authority_commit\": \"f8789d9266ed3389466a4637c3a7d68a1e9b103e\", \"changed_owned_paths\": [], \"checkpoints\": [], \"completion_commit\": \"3e9cb7542931d106ccbb3270c60caf5b6d31dc24\", \"completion_gates\": [], \"completion_revision\": 10, \"finalized_checkpoints\": [], \"gates\": [], \"git_diffstat\": \"\", \"git_head\": \"3e9cb7542931d106ccbb3270c60caf5b6d31dc24\", \"integration_commit\": null, \"interfaces\": [], \"note\": \"Three real fixtures and both final independent-degree32 synthetic cases passed fixed gates; unchanged deterministic downstream masks identical. Reviewed source committed, with generated runtime evidence ignored and preserved. Evidence /home/tumlinson/data/design-probes/native-moments-20261006. Delivery stays isolated to preserve concurrent Cellerator work.\", \"producer_commit\": \"3e9cb7542931d106ccbb3270c60caf5b6d31dc24\", \"producer_root\": \"/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/workflow-workspaces/scv-mom-producer\", \"resources\": [], \"task_id\": \"SCV-MOM-PROBE-01\"}",
+        "revision": 10,
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "claim_id": null,
+        "created_at": "2026-10-06T17:21:18Z",
+        "id": "8274d830-bb64-44e6-afc6-f291aec2e7e6",
+        "kind": "complete",
+        "note": "Integrated scoped producer artifact as 18aa190ee1cbf2e450c0581d34cebda14849ccb8; required CPU harness gate passed (12 meaningful tests). Fixed predeclared real-fixture moments, deterministic downstream and both independent-degree32 5/20 synthetic gates all passed under CUDA controller; evidence durable /home/tumlinson/data/design-probes/native-moments-20261006. No whole-project speed or biological-validation claim. Keep source on isolated pushed branches while concurrent Cellerator streams edit canonical source.",
+        "payload_json": "{\"authority_commit\": \"f8789d9266ed3389466a4637c3a7d68a1e9b103e\", \"changed_owned_paths\": [], \"checkpoints\": [], \"completion_commit\": \"18aa190ee1cbf2e450c0581d34cebda14849ccb8\", \"completion_gates\": [{\"evidence_id\": \"67a5ae22-3c15-4b59-8603-437bbfbb76c9\", \"evidence_revision\": 20, \"id\": \"SCV-MOM-INTEGRATE-HARNESS-UNIT\", \"input_fingerprint\": \"95fa4c6f324211d796e372f2671c792307cd74d7344c62591cdf80d19b3bd076\", \"status\": \"passed\", \"valid\": true, \"validation_git_head\": \"18aa190ee1cbf2e450c0581d34cebda14849ccb8\"}], \"completion_revision\": 21, \"finalized_checkpoints\": [], \"gates\": [{\"id\": \"SCV-MOM-INTEGRATE-HARNESS-UNIT\", \"input_fingerprint\": \"95fa4c6f324211d796e372f2671c792307cd74d7344c62591cdf80d19b3bd076\", \"last_run_at\": \"2026-10-06T17:21:18Z\", \"revision\": 20, \"status\": \"passed\", \"valid\": 1}], \"git_diffstat\": \"\", \"git_head\": \"18aa190ee1cbf2e450c0581d34cebda14849ccb8\", \"integration_commit\": null, \"interfaces\": [], \"note\": \"Integrated scoped producer artifact as 18aa190ee1cbf2e450c0581d34cebda14849ccb8; required CPU harness gate passed (12 meaningful tests). Fixed predeclared real-fixture moments, deterministic downstream and both independent-degree32 5/20 synthetic gates all passed under CUDA controller; evidence durable /home/tumlinson/data/design-probes/native-moments-20261006. No whole-project speed or biological-validation claim. Keep source on isolated pushed branches while concurrent Cellerator streams edit canonical source.\", \"producer_commit\": \"18aa190ee1cbf2e450c0581d34cebda14849ccb8\", \"producer_root\": \"/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/workflow-workspaces/scv-mom-integrator\", \"resources\": [], \"task_id\": \"SCV-MOM-PROBE-INTEGRATE\"}",
+        "revision": 21,
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      }
+    ],
+    "interface_consumers": [],
+    "interfaces": [],
+    "invariants": [],
+    "live_recovery_audit": [],
+    "migration_warnings": [],
+    "named_locks": [],
+    "ownership_scopes": [
+      {
+        "mode": "exclusive",
+        "path": ".gitignore",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "exclusive",
+        "path": "docs/native-moments-probe.md",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "exclusive",
+        "path": "probes/native_moments",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "forbidden",
+        "path": ".todo-orchestrator",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "forbidden",
+        "path": "components/CelleraTorch",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "forbidden",
+        "path": "python/cellerator",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "forbidden",
+        "path": "todo-status.md",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "forbidden",
+        "path": "todos",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "forbidden",
+        "path": "todos.md",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "read",
+        "path": "AGENTS.md",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "read",
+        "path": "CMakeLists.txt",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "read",
+        "path": "cmake",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "read",
+        "path": "docs/library-design-probes.md",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "read",
+        "path": "scvelo",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "read",
+        "path": "tests",
+        "task_id": "SCV-MOM-PROBE-01"
+      },
+      {
+        "mode": "exclusive",
+        "path": ".gitignore",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "mode": "exclusive",
+        "path": "docs/native-moments-probe.md",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "mode": "exclusive",
+        "path": "probes/native_moments",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "mode": "forbidden",
+        "path": ".todo-orchestrator",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "mode": "forbidden",
+        "path": "components/CelleraTorch",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "mode": "forbidden",
+        "path": "python/cellerator",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "mode": "forbidden",
+        "path": "todo-status.md",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "mode": "forbidden",
+        "path": "todos",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "mode": "forbidden",
+        "path": "todos.md",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "mode": "read",
+        "path": "AGENTS.md",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "mode": "read",
+        "path": "CMakeLists.txt",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "mode": "read",
+        "path": "cmake",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "mode": "read",
+        "path": "docs/library-design-probes.md",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "mode": "read",
+        "path": "scvelo",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "mode": "read",
+        "path": "tests",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      }
+    ],
+    "project_amendments": [],
+    "project_declarations": [],
+    "project_fragment_invalidations": [],
+    "resource_classes": [],
+    "resource_instances": [],
+    "resource_requests": [],
+    "task_artifacts": [],
+    "task_completion_gates": [
+      {
+        "completion_git_head": "18aa190ee1cbf2e450c0581d34cebda14849ccb8",
+        "completion_revision": 21,
+        "evidence_id": "67a5ae22-3c15-4b59-8603-437bbfbb76c9",
+        "evidence_revision": 20,
+        "gate_id": "SCV-MOM-INTEGRATE-HARNESS-UNIT",
+        "input_fingerprint": "95fa4c6f324211d796e372f2671c792307cd74d7344c62591cdf80d19b3bd076",
+        "provenance_json": "{\"claim_id\": \"cf37ddb8-2425-4d43-95ac-c59efcaf15c3\", \"evidence_content_hash\": null, \"evidence_kind\": \"command\", \"evidence_metadata\": {\"argv\": [\"/tmp/moments-probe-20261006/venv/bin/python\", \"-m\", \"unittest\", \"discover\", \"-s\", \".\", \"-p\", \"test_harness.py\", \"-v\"], \"environment\": {}, \"expected_exit_code\": 0, \"input_fingerprint\": \"95fa4c6f324211d796e372f2671c792307cd74d7344c62591cdf80d19b3bd076\", \"inputs\": {\"command_contract\": {\"argv\": [\"/tmp/moments-probe-20261006/venv/bin/python\", \"-m\", \"unittest\", \"discover\", \"-s\", \".\", \"-p\", \"test_harness.py\", \"-v\"], \"cwd\": \"probes/native_moments\", \"env\": {\"MPLCONFIGDIR\": \"/tmp/moments-probe-20261006/mpl\", \"NUMBA_CACHE_DIR\": \"/tmp/moments-probe-20261006/numba\", \"PYTHONDONTWRITEBYTECODE\": \"1\"}, \"timeout\": 900}, \"diff_fingerprint\": \"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\", \"dirty_paths\": [], \"files\": [{\"path\": \"probes/native_moments/harness.py\", \"sha256\": \"6224617ad2f14661a9623cc5c0f896bed1f3a095cd959cfd2f3a31f89e62bf5d\"}, {\"path\": \"probes/native_moments/report.py\", \"sha256\": \"fe4632708f39c3e5f1affa5459c4eb72f4f416769d51314003785e2294f7d228\"}, {\"path\": \"probes/native_moments/test_harness.py\", \"sha256\": \"a8e4fd12199a921892cb0a40fa1e82df169e7d556f13965d2aec0c18c1ff6fcf\"}], \"interfaces\": [], \"recorded_git_head\": \"18aa190ee1cbf2e450c0581d34cebda14849ccb8\", \"static_path\": null}, \"locks\": [], \"resources\": [], \"returncode\": 0, \"source_identity\": \"4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54\", \"started_revision\": 19, \"workspace_path\": \"/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/workflow-workspaces/scv-mom-integrator\"}, \"evidence_path\": \"/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/evidence/67a5ae22-3c15-4b59-8603-437bbfbb76c9\", \"source\": \"completion_transaction\"}",
+        "status": "passed",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE",
+        "valid": 1,
+        "validation_git_head": "18aa190ee1cbf2e450c0581d34cebda14849ccb8"
+      }
+    ],
+    "task_dependencies": [
+      {
+        "barrier_id": null,
+        "checkpoint_id": null,
+        "condition_json": "{}",
+        "decision_id": null,
+        "id": 1,
+        "interface_id": null,
+        "prerequisite_task_id": "SCV-MOM-PROBE-01",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE",
+        "type": "task"
+      }
+    ],
+    "task_invariants": [],
+    "task_locks": [],
+    "tasks": [
+      {
+        "attention_reason": null,
+        "completion_commit": "3e9cb7542931d106ccbb3270c60caf5b6d31dc24",
+        "completion_git_head": "3e9cb7542931d106ccbb3270c60caf5b6d31dc24",
+        "completion_revision": 10,
+        "created_at": "2026-10-06T16:10:33Z",
+        "id": "SCV-MOM-PROBE-01",
+        "kind": "task",
+        "legacy_owner": null,
+        "legacy_payload_json": "{}",
+        "next_action": "Use configured bounded Codex implementers; preserve binding ownership. Root integrates and qualifies under the CUDA controller.",
+        "notes": "",
+        "objective": "Implement the explicitly approved native moments probe within the scoped source owner.",
+        "parallel_policy": "serial",
+        "parent_id": null,
+        "priority": 100,
+        "result": "validated",
+        "result_policy_json": "{\"allowed_dispositions\": [\"implemented\", \"validated\"]}",
+        "revision": 10,
+        "status": "done",
+        "tags_json": "[]",
+        "title": "Native first and second moments probe: scvelo producer",
+        "updated_at": "2026-10-06T17:19:55Z",
+        "version": 3
+      },
+      {
+        "attention_reason": null,
+        "completion_commit": "18aa190ee1cbf2e450c0581d34cebda14849ccb8",
+        "completion_git_head": "18aa190ee1cbf2e450c0581d34cebda14849ccb8",
+        "completion_revision": 21,
+        "created_at": "2026-10-06T16:10:33Z",
+        "id": "SCV-MOM-PROBE-INTEGRATE",
+        "kind": "task",
+        "legacy_owner": null,
+        "legacy_payload_json": "{}",
+        "next_action": "",
+        "notes": "",
+        "objective": "Review and integrate scoped producer edits; validate native arithmetic, upstream comparisons, sanitizer and separated cost report.",
+        "parallel_policy": "serial",
+        "parent_id": null,
+        "priority": 100,
+        "result": "validated",
+        "result_policy_json": "{\"allowed_dispositions\": [\"implemented\", \"validated\"]}",
+        "revision": 21,
+        "status": "done",
+        "tags_json": "[]",
+        "title": "Integrate and qualify native moments probe: scvelo",
+        "updated_at": "2026-10-06T17:21:18Z",
+        "version": 3
+      }
+    ],
+    "workflow_context_fragments": [
+      {
+        "content_hash": "53ffb0656cb05c7c90504aa94fb66a80c3c27106da1b64e8053b3f7d42c438d7",
+        "content_json": "{\"authority\":\"server_enforced_role_and_task_scope\",\"interfaces\":[],\"ordered_tasks\":[\"SCV-MOM-PROBE-INTEGRATE\"],\"rendezvous\":[],\"role\":\"integrator\",\"workspace_mode\":\"exclusive\"}",
+        "created_at": "2026-10-06T16:10:33Z",
+        "creation_revision": 2,
+        "id": "SCV-MOM-PROBE-RUN-1:lane_brief:SCV-MOM-INTEGRATOR:-:1",
+        "invalidated_at": null,
+        "invalidation_revision": null,
+        "kind": "lane_brief",
+        "lane_id": "SCV-MOM-INTEGRATOR",
+        "owner_scope_json": "{\"lane_id\":\"SCV-MOM-INTEGRATOR\",\"run_id\":\"SCV-MOM-PROBE-RUN-1\"}",
+        "run_id": "SCV-MOM-PROBE-RUN-1",
+        "series_key": "",
+        "superseded_by": null,
+        "task_id": null,
+        "version": 1
+      },
+      {
+        "content_hash": "fb305727d39f67568a6d24143c9328aae32bc358990da0206cdae32e2604aba6",
+        "content_json": "{\"authority\":\"server_enforced_role_and_task_scope\",\"delegated_choices\":\"Root owns architecture; bounded children own arithmetic, generic example, and scientific harness separately.\",\"interfaces\":[],\"ordered_tasks\":[\"SCV-MOM-PROBE-01\"],\"rendezvous\":[],\"role\":\"implementer\",\"workspace_mode\":\"isolated_merge\"}",
+        "created_at": "2026-10-06T16:10:33Z",
+        "creation_revision": 2,
+        "id": "SCV-MOM-PROBE-RUN-1:lane_brief:SCV-MOM-PRODUCER:-:1",
+        "invalidated_at": null,
+        "invalidation_revision": null,
+        "kind": "lane_brief",
+        "lane_id": "SCV-MOM-PRODUCER",
+        "owner_scope_json": "{\"lane_id\":\"SCV-MOM-PRODUCER\",\"run_id\":\"SCV-MOM-PROBE-RUN-1\"}",
+        "run_id": "SCV-MOM-PROBE-RUN-1",
+        "series_key": "",
+        "superseded_by": null,
+        "task_id": null,
+        "version": 1
+      },
+      {
+        "content_hash": "b17f1c7fb7b51d7f37c4c3934eb5109e092f3a4347afbb112d6f536d40fc0cf4",
+        "content_json": "{\"boundaries\":[\"Native contiguous FP32 only; no FP16, algorithm changes, fusion, or Python binding edits.\",\"Preserve existing tasks, worktrees and source changes; never manually edit Todo state.\",\"All GPU acceptance and timings through the CUDA controller on one admitted device.\",\"Read input datasets without modification; exclude /mnt/block entirely.\",\"Predeclared numerical gates must not be relaxed; report failures and actual measured costs.\"],\"desired_end_state\":\"Callable reusable multiply and axpby primitives, generic native example, reproducible upstream comparisons and cost report.\",\"objective\":\"First reusable native moment-composition probe on local real-data slices, plus synthetic cost evidence.\",\"references\":[\"docs/library-design-probes.md\"]}",
+        "created_at": "2026-10-06T16:10:33Z",
+        "creation_revision": 2,
+        "id": "SCV-MOM-PROBE-RUN-1:run_charter:-:-:1",
+        "invalidated_at": null,
+        "invalidation_revision": null,
+        "kind": "run_charter",
+        "lane_id": null,
+        "owner_scope_json": "{\"run_id\":\"SCV-MOM-PROBE-RUN-1\"}",
+        "run_id": "SCV-MOM-PROBE-RUN-1",
+        "series_key": "",
+        "superseded_by": null,
+        "task_id": null,
+        "version": 1
+      },
+      {
+        "content_hash": "b87b7c43a63a840f50a4b6ee08d86c2367d6e646c4c50ab1a79eef3d40192842",
+        "content_json": "{\"completion_contract\":{\"required\":[\"Native correctness matches predeclared limits; sanitizer and real data comparisons recorded; both synthetic benchmark cases measured; report library gaps and actual costs with source identities.\"]},\"forbidden_mutations\":[\".todo-orchestrator\",\"todos\",\"todos.md\",\"todo-status.md\",\"python/cellerator\",\"components/CelleraTorch\"],\"gates\":[],\"next_action\":\"Review and integrate scoped producer edits; validate native arithmetic, upstream comparisons, sanitizer and separated cost report.\",\"objective\":\"Review and integrate scoped producer edits; validate native arithmetic, upstream comparisons, sanitizer and separated cost report.\",\"scope\":{\"exclusive_paths\":[\"probes/native_moments\",\"docs/native-moments-probe.md\",\".gitignore\"],\"forbidden_paths\":[\".todo-orchestrator\",\"todos\",\"todos.md\",\"todo-status.md\",\"python/cellerator\",\"components/CelleraTorch\"],\"read_paths\":[\"AGENTS.md\",\"docs/library-design-probes.md\",\"CMakeLists.txt\",\"cmake\",\"scvelo\",\"tests\"]},\"tests\":[]}",
+        "created_at": "2026-10-06T16:10:33Z",
+        "creation_revision": 2,
+        "id": "SCV-MOM-PROBE-RUN-1:task_brief:SCV-MOM-INTEGRATOR:SCV-MOM-PROBE-INTEGRATE:1",
+        "invalidated_at": null,
+        "invalidation_revision": null,
+        "kind": "task_brief",
+        "lane_id": "SCV-MOM-INTEGRATOR",
+        "owner_scope_json": "{\"lane_id\":\"SCV-MOM-INTEGRATOR\",\"run_id\":\"SCV-MOM-PROBE-RUN-1\",\"task_id\":\"SCV-MOM-PROBE-INTEGRATE\"}",
+        "run_id": "SCV-MOM-PROBE-RUN-1",
+        "series_key": "",
+        "superseded_by": null,
+        "task_id": "SCV-MOM-PROBE-INTEGRATE",
+        "version": 1
+      },
+      {
+        "content_hash": "bb442989b2b2f5de8938ed65b8c8559cc5b9c5eb6a7fb43c0860b55401907ecc",
+        "content_json": "{\"completion_contract\":{\"required\":[\"Deliver reviewable source, meaningful checks, and frozen interface; root retains scientific and GPU acceptance.\"]},\"forbidden_mutations\":[\".todo-orchestrator\",\"todos\",\"todos.md\",\"todo-status.md\",\"python/cellerator\",\"components/CelleraTorch\"],\"gates\":[],\"next_action\":\"Use configured bounded Codex implementers; preserve binding ownership. Root integrates and qualifies under the CUDA controller.\",\"objective\":\"Implement the explicitly approved native moments probe within the scoped source owner.\",\"scope\":{\"exclusive_paths\":[\"probes/native_moments\",\"docs/native-moments-probe.md\",\".gitignore\"],\"forbidden_paths\":[\".todo-orchestrator\",\"todos\",\"todos.md\",\"todo-status.md\",\"python/cellerator\",\"components/CelleraTorch\"],\"read_paths\":[\"AGENTS.md\",\"docs/library-design-probes.md\",\"CMakeLists.txt\",\"cmake\",\"scvelo\",\"tests\"]},\"tests\":[]}",
+        "created_at": "2026-10-06T16:10:33Z",
+        "creation_revision": 2,
+        "id": "SCV-MOM-PROBE-RUN-1:task_brief:SCV-MOM-PRODUCER:SCV-MOM-PROBE-01:1",
+        "invalidated_at": null,
+        "invalidation_revision": null,
+        "kind": "task_brief",
+        "lane_id": "SCV-MOM-PRODUCER",
+        "owner_scope_json": "{\"lane_id\":\"SCV-MOM-PRODUCER\",\"run_id\":\"SCV-MOM-PROBE-RUN-1\",\"task_id\":\"SCV-MOM-PROBE-01\"}",
+        "run_id": "SCV-MOM-PROBE-RUN-1",
+        "series_key": "",
+        "superseded_by": null,
+        "task_id": "SCV-MOM-PROBE-01",
+        "version": 1
+      }
+    ],
+    "workflow_integration_queue": [
+      {
+        "conflict_json": "{}",
+        "created_at": "2026-10-06T17:19:55Z",
+        "id": "2f7fd6cf-158b-4406-870c-1264655a228a",
+        "integration_task_id": "SCV-MOM-PROBE-INTEGRATE",
+        "integrator_lane_id": "SCV-MOM-INTEGRATOR",
+        "merge_result_json": "{\"apply_revision\":14,\"destination_worktree\":\"/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/workflow-workspaces/scv-mom-integrator\",\"gates\":[{\"evidence_id\":\"c7d3297f-816d-4c1a-9464-073a50ac53b7\",\"evidence_revision\":16,\"evidence_status\":\"passed\",\"gate_id\":\"SCV-MOM-INTEGRATE-HARNESS-UNIT\",\"input_fingerprint\":\"95fa4c6f324211d796e372f2671c792307cd74d7344c62591cdf80d19b3bd076\",\"started_revision\":15,\"status\":\"passed\",\"valid\":true}],\"integrated_artifact\":{\"content_hash\":\"4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54\",\"kind\":\"commit\",\"patch_ref\":\"/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/workflow-workspaces/artifacts/integration-4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54.patch\",\"ref\":\"18aa190ee1cbf2e450c0581d34cebda14849ccb8\"},\"pre_apply_head\":\"f8789d9266ed3389466a4637c3a7d68a1e9b103e\",\"source_identity\":\"4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54\",\"state\":\"integrated\"}",
+        "patch_artifact_id": "15887fec-e866-4f7b-b9a3-5630dabb70c0",
+        "position": 0,
+        "run_id": "SCV-MOM-PROBE-RUN-1",
+        "state": "integrated",
+        "updated_at": "2026-10-06T17:21:02Z"
+      }
+    ],
+    "workflow_lane_tasks": [
+      {
+        "activated_at": "2026-10-06T17:20:41Z",
+        "completed_at": "2026-10-06T17:21:18Z",
+        "enqueued_at": "2026-10-06T16:10:33Z",
+        "lane_id": "SCV-MOM-INTEGRATOR",
+        "position": 0,
+        "revision": 21,
+        "state": "completed",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE"
+      },
+      {
+        "activated_at": "2026-10-06T16:13:52Z",
+        "completed_at": "2026-10-06T17:19:55Z",
+        "enqueued_at": "2026-10-06T16:10:33Z",
+        "lane_id": "SCV-MOM-PRODUCER",
+        "position": 0,
+        "revision": 10,
+        "state": "completed",
+        "task_id": "SCV-MOM-PROBE-01"
+      }
+    ],
+    "workflow_lanes": [
+      {
+        "context_cursor": 0,
+        "created_at": "2026-10-06T16:10:33Z",
+        "id": "SCV-MOM-INTEGRATOR",
+        "parent_lane_id": null,
+        "revision": 21,
+        "role": "integrator",
+        "run_id": "SCV-MOM-PROBE-RUN-1",
+        "state": "closed",
+        "updated_at": "2026-10-06T17:21:18Z",
+        "workspace_mode": "exclusive"
+      },
+      {
+        "context_cursor": 0,
+        "created_at": "2026-10-06T16:10:33Z",
+        "id": "SCV-MOM-PRODUCER",
+        "parent_lane_id": "SCV-MOM-INTEGRATOR",
+        "revision": 10,
+        "role": "implementer",
+        "run_id": "SCV-MOM-PROBE-RUN-1",
+        "state": "closed",
+        "updated_at": "2026-10-06T17:19:55Z",
+        "workspace_mode": "isolated_merge"
+      }
+    ],
+    "workflow_message_receipts": [],
+    "workflow_message_recipients": [],
+    "workflow_messages": [],
+    "workflow_patch_artifacts": [
+      {
+        "artifact_ref": "3e9cb7542931d106ccbb3270c60caf5b6d31dc24",
+        "base_commit": "f8789d9266ed3389466a4637c3a7d68a1e9b103e",
+        "content_hash": "4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54",
+        "created_at": "2026-10-06T17:19:55Z",
+        "id": "15887fec-e866-4f7b-b9a3-5630dabb70c0",
+        "kind": "commit",
+        "state": "integrated",
+        "task_id": "SCV-MOM-PROBE-01",
+        "workspace_id": "4e4141dc-a92b-40fc-a85f-0867e4f4d924"
+      },
+      {
+        "artifact_ref": "18aa190ee1cbf2e450c0581d34cebda14849ccb8",
+        "base_commit": "f8789d9266ed3389466a4637c3a7d68a1e9b103e",
+        "content_hash": "4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54",
+        "created_at": "2026-10-06T17:21:02Z",
+        "id": "fa755506-5131-4b31-9201-18e91dd865ab",
+        "kind": "commit",
+        "state": "integrated",
+        "task_id": "SCV-MOM-PROBE-INTEGRATE",
+        "workspace_id": "442db602-412f-4f3a-be32-571505bbaffb"
+      }
+    ],
+    "workflow_recovery_audit": [],
+    "workflow_rendezvous": [],
+    "workflow_rendezvous_arrivals": [],
+    "workflow_rendezvous_participants": [],
+    "workflow_run_charters": [
+      {
+        "content_hash": "b17f1c7fb7b51d7f37c4c3934eb5109e092f3a4347afbb112d6f536d40fc0cf4",
+        "content_json": "{\"boundaries\":[\"Native contiguous FP32 only; no FP16, algorithm changes, fusion, or Python binding edits.\",\"Preserve existing tasks, worktrees and source changes; never manually edit Todo state.\",\"All GPU acceptance and timings through the CUDA controller on one admitted device.\",\"Read input datasets without modification; exclude /mnt/block entirely.\",\"Predeclared numerical gates must not be relaxed; report failures and actual measured costs.\"],\"desired_end_state\":\"Callable reusable multiply and axpby primitives, generic native example, reproducible upstream comparisons and cost report.\",\"objective\":\"First reusable native moment-composition probe on local real-data slices, plus synthetic cost evidence.\",\"references\":[\"docs/library-design-probes.md\"]}",
+        "created_at": "2026-10-06T16:10:33Z",
+        "creation_revision": 2,
+        "run_id": "SCV-MOM-PROBE-RUN-1",
+        "superseded_at": null,
+        "superseded_revision": null,
+        "version": 1
+      }
+    ],
+    "workflow_runs": [
+      {
+        "active_charter_version": 1,
+        "completed_at": null,
+        "created_at": "2026-10-06T16:10:33Z",
+        "id": "SCV-MOM-PROBE-RUN-1",
+        "revision": 21,
+        "root_task_id": "SCV-MOM-PROBE-01",
+        "status": "completed",
+        "updated_at": "2026-10-06T17:21:18Z"
+      }
+    ],
+    "workflow_workspaces": [
+      {
+        "artifact_kind": "commit",
+        "artifact_ref": "18aa190ee1cbf2e450c0581d34cebda14849ccb8",
+        "base_commit": "f8789d9266ed3389466a4637c3a7d68a1e9b103e",
+        "branch": "codex/scv-mom-integrator",
+        "cleanup_eligible": 0,
+        "created_at": "2026-10-06T17:17:29Z",
+        "diff_hash": "4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54",
+        "id": "442db602-412f-4f3a-be32-571505bbaffb",
+        "integration_task_id": "SCV-MOM-PROBE-INTEGRATE",
+        "lane_id": "SCV-MOM-INTEGRATOR",
+        "merge_result_json": "{\"apply_revision\":14,\"destination_worktree\":\"/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/workflow-workspaces/scv-mom-integrator\",\"gates\":[{\"evidence_id\":\"c7d3297f-816d-4c1a-9464-073a50ac53b7\",\"evidence_revision\":16,\"evidence_status\":\"passed\",\"gate_id\":\"SCV-MOM-INTEGRATE-HARNESS-UNIT\",\"input_fingerprint\":\"95fa4c6f324211d796e372f2671c792307cd74d7344c62591cdf80d19b3bd076\",\"started_revision\":15,\"status\":\"passed\",\"valid\":true}],\"integrated_artifact\":{\"content_hash\":\"4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54\",\"kind\":\"commit\",\"patch_ref\":\"/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/workflow-workspaces/artifacts/integration-4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54.patch\",\"ref\":\"18aa190ee1cbf2e450c0581d34cebda14849ccb8\"},\"pre_apply_head\":\"f8789d9266ed3389466a4637c3a7d68a1e9b103e\",\"source_identity\":\"4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54\",\"state\":\"integrated\"}",
+        "mode": "exclusive",
+        "repository_identity": "bd314e4b2a5e36b759450634f25e68a3d270b3b5e98337e1404b5c04b14f832a",
+        "run_id": "SCV-MOM-PROBE-RUN-1",
+        "state": "integrated",
+        "updated_at": "2026-10-06T17:21:02Z",
+        "worktree_path": "/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/workflow-workspaces/scv-mom-integrator"
+      },
+      {
+        "artifact_kind": "commit",
+        "artifact_ref": "3e9cb7542931d106ccbb3270c60caf5b6d31dc24",
+        "base_commit": "f8789d9266ed3389466a4637c3a7d68a1e9b103e",
+        "branch": "codex/scv-mom-producer",
+        "cleanup_eligible": 0,
+        "created_at": "2026-10-06T16:13:44Z",
+        "diff_hash": "4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54",
+        "id": "4e4141dc-a92b-40fc-a85f-0867e4f4d924",
+        "integration_task_id": "SCV-MOM-PROBE-INTEGRATE",
+        "lane_id": "SCV-MOM-PRODUCER",
+        "merge_result_json": "{\"apply_revision\":14,\"destination_worktree\":\"/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/workflow-workspaces/scv-mom-integrator\",\"gates\":[{\"evidence_id\":\"c7d3297f-816d-4c1a-9464-073a50ac53b7\",\"evidence_revision\":16,\"evidence_status\":\"passed\",\"gate_id\":\"SCV-MOM-INTEGRATE-HARNESS-UNIT\",\"input_fingerprint\":\"95fa4c6f324211d796e372f2671c792307cd74d7344c62591cdf80d19b3bd076\",\"started_revision\":15,\"status\":\"passed\",\"valid\":true}],\"integrated_artifact\":{\"content_hash\":\"4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54\",\"kind\":\"commit\",\"patch_ref\":\"/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/workflow-workspaces/artifacts/integration-4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54.patch\",\"ref\":\"18aa190ee1cbf2e450c0581d34cebda14849ccb8\"},\"pre_apply_head\":\"f8789d9266ed3389466a4637c3a7d68a1e9b103e\",\"source_identity\":\"4e7d3f690e220de73d8e558678aa38457045d445a3d6e93c923252ce9faa3c54\",\"state\":\"integrated\"}",
+        "mode": "isolated_merge",
+        "repository_identity": "bd314e4b2a5e36b759450634f25e68a3d270b3b5e98337e1404b5c04b14f832a",
+        "run_id": "SCV-MOM-PROBE-RUN-1",
+        "state": "integrated",
+        "updated_at": "2026-10-06T17:21:02Z",
+        "worktree_path": "/home/tumlinson/accelerated-ports/scVelo/.git/todo-orchestrator/b6b1bce7-d113-4646-9d74-062156d3cbac/workflow-workspaces/scv-mom-producer"
+      }
+    ]
+  },
+  "workflow_snapshot_version": 1
+}
