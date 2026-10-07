@@ -418,6 +418,14 @@ def compare(actual, expected, dataset):
     return {"dataset": dataset, "all_pass": all(item["pass"] for item in fields.values()), "fields": fields}
 
 
+def same_nonfinite_pattern(actual, expected):
+    """Require NaNs and the sign of infinities to occur at identical coordinates."""
+    actual, expected = np.asarray(actual), np.asarray(expected)
+    return (np.array_equal(np.isnan(actual), np.isnan(expected))
+            and np.array_equal(np.isposinf(actual), np.isposinf(expected))
+            and np.array_equal(np.isneginf(actual), np.isneginf(expected)))
+
+
 def compare_native_files(directory: Path, expected, shape, dataset):
     """Compare one output at a time to bound memory in the large case."""
     fields = {}
@@ -455,7 +463,7 @@ def downstream(data, native, expected):
     for key in ("gamma", "offset", "r2"):
         a, e = np.asarray(got[key]), np.asarray(ref[key])
         both_finite = np.isfinite(a) & np.isfinite(e)
-        same_nonfinite = np.array_equal(np.isnan(a), np.isnan(e)) and np.array_equal(np.isinf(a), np.isinf(e))
+        same_nonfinite = same_nonfinite_pattern(a, e)
         fields[key] = {"pass": bool(same_nonfinite and np.allclose(a[both_finite], e[both_finite], rtol=1e-4, atol=1e-5)),
                        "nonfinite_reference_count": int(np.count_nonzero(~np.isfinite(e))),
                        "max_abs_error_finite": float(np.abs(a[both_finite] - e[both_finite]).max(initial=0))}

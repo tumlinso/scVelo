@@ -119,3 +119,124 @@ questions: Cellerator needs an explicit strict-versus-fast math admission
 contract for FMA/reassociation while retaining CSR, and ownership should be
 coordinated for an FP64 elementwise multiply primitive needed by a later
 CellRank velocity path. No broad API refactor is indicated by this probe.
+
+## Resident Python consumer follow-on
+
+`probes/native_moments/resident_moments.py` exercises the resident Python
+binding without moving arithmetic into NumPy or Torch. The direct backend uses
+`cellerator.cuda`; the Torch adapter uses Torch tensors only as storage and
+transfer providers while Cellerator's native operations perform multiplication,
+affine combination, and prepared-CSR application. The `both` mode runs the
+providers serially over the same finalized input and shares one SciPy synthetic
+reference.
+
+Run it inside a CUDA-controller session after that controller admits the
+device, with the explicitly staged Cellerator package available to Python and
+the build receipt produced for that exact package. Do not launch this command
+from an unadmitted shell. The receipt is required even when C++ parity is
+omitted:
+
+```sh
+export PYTHONPATH=/path/to/staged-package:/path/to/scVelo
+export NUMBA_CACHE_DIR=/tmp/moments-bindings-20261007/environment/numba-cache
+export MPLCONFIGDIR=/tmp/moments-bindings-20261007/environment/mplconfig
+python probes/native_moments/resident_moments.py \
+  --backend both --case real \
+  --cellerator-root /path/to/Cellerator-worktree \
+  --scvelo-root /path/to/scVelo-worktree \
+  --cellrank-root /path/to/CellRank-worktree \
+  --build-info /path/to/cellerator-python-build-receipt.json \
+  --native-executable /path/to/ceNativeNeighborhoodMoments \
+  --output /tmp/native-moments-resident
+```
+
+`--native-executable` is optional. When supplied, the same build receipt must
+contain `native_executable.path` and `native_executable.sha256`; both the
+resolved path and executable hash are checked before launch. The C++ baseline
+consumes the exact finalized arrays used by the direct and Torch providers.
+Those arrays are also exported as dense FP32 fields, FP32 weights, and
+`uint64` CSR offsets and indices in preserved edge order. The legacy C++ file
+protocol receives a width-compatible encoding from those same finalized
+arrays. C++ output is streamed one field at a time through the same ten
+scientific oracle gates, including the stricter analytic limits. C++, direct,
+and Torch results carry identical input-manifest and logical-array hashes; no
+second SciPy benchmark is run. C++ parity uses zero warmups and one
+composition, so its process total includes startup, input reading, setup, one
+diagnostic, composition, materialization, and output writing. It is
+correctness evidence, not a timing comparison, including for synthetic cases.
+The typed finalized-input bundle is exported for every case even when the
+optional executable is omitted. C++ metrics also preserve the
+runtime GPU identity reported by the executable; provider bindings report the
+admitted device ordinal.
+
+`--case` accepts `real`, `analytic`, `compute`, or `transfer`; the synthetic
+cases reuse the first probe's seeded 8,192x2,048 and 32,768x2,048 workloads,
+degree-32 topology, and 5-warmup/20-measurement protocol. The real case uses
+the same pancreas, dentate-gyrus, and CellRank fixtures and their existing
+upstream preparation helpers. The analytic case uses a rectangular relation,
+an empty row, signed/zero/constant values, and 131 features to exercise a
+non-aligned width. The original sparse SciPy fields remain the synthetic
+reference inputs; dense FP32 fields and `uint64` CSR structure/indices are
+passed to the native binding in preserved CSR edge order.
+
+Before importing a provider, the harness validates the build receipt's scoped
+Cellerator source hashes, aggregate content digest, staged package root, and
+compiled `cellerator._native` path/hash. It records build and current source
+heads, scoped source identities, input array digests, and fixture digests in
+external artifact manifests. A different checkout HEAD is accepted only when
+all receipt-scoped source content still matches. Do not run without the
+receipt or substitute an unrelated installed extension.
+
+One prepared CSR relation and one published value generation are reused for
+all warmups and measured applications. The composition uses six elementwise
+multiplications, five prepared-relation applies, and five affine combinations
+per iteration; all input, product, raw-output, and derived-output buffers are
+allocated before timing. It measures resident CUDA-event and host enqueue/wait
+time separately from means-only and all-ten-output downloads. Correctness
+materializes all ten fields once and applies the existing numerical gates;
+the deterministic downstream fit consumes the means-only materialization.
+Each provider reports backend initialization, the actual wall interval from
+input validation through resident readiness, and a reconstructed cold-path
+estimate: source read/graph preparation/densification, backend initialization,
+one whole input-to-resident-ready wall interval, one median resident host
+composition, and means-only materialization. The whole readiness wall already
+contains validation, allocation, H2D, and relation preparation, so those nested
+stage diagnostics are not added again. That estimate excludes oracle
+computation, export/provenance writing, warmups, downstream fitting, and the
+all-output correctness readback. Stage values are diagnostics; use the
+explicit estimate instead of adding nested stage intervals into another
+total. Per-case runner wall time is recorded separately and includes parity,
+provider execution, and comparisons; real-fixture preparation occurs before
+that interval.
+The native buffer-byte counter and prepared-relation bytes are reported
+separately. Torch allocator allocated/reserved counters are labeled
+process-wide, since caching or unrelated live tensors can contribute. At this
+stage, the binding-level observation is limited to caller-owned buffers and
+prepared relations carrying explicit device/stream context; broader package
+link-dependency evidence remains for the integration report.
+
+Implementation and validation status for this follow-on: the receipt-verified
+same-input C++ comparison and direct/Torch provider paths are implemented, and
+Torch supplies storage and transfers only. The C++/CUDA targets compiled
+successfully, and all 24 CPU contract tests passed. Those tests use a fake
+backend; no direct, Torch, or C++ resident path has yet completed an admitted
+GPU run. GPU numerical qualification, Compute Sanitizer, and resident
+performance measurements remain pending controller admission. The earlier
+native C++ probe results above are separate evidence and do not qualify these
+new Python-consumer paths.
+
+CPU-only contract tests run with the probe environment:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python -m unittest discover \
+  -s probes/native_moments -p 'test*.py' -v
+```
+
+They use an injected NumPy/SciPy fake backend to exercise orchestration, exact
+materialization byte counts, preserved CSR order, reuse, build/executable
+receipt rejection, shared typed-input export, C++ output gates, case tuple
+orchestration, and cold-cost scopes. They are not GPU qualification and never
+import Cellerator CUDA or Torch. GPU
+correctness and timings must be produced by the admitted controller. Synthetic
+timings remain synthetic evidence and do not support a whole-project speedup
+claim.

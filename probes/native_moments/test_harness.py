@@ -166,6 +166,13 @@ class HarnessTest(unittest.TestCase):
         failing = {"correctness": {"all_pass": True}, "downstream": {"all_pass": False}}
         self.assertFalse(harness.acceptance_passes({"errors": [], "datasets": {"x": failing}}))
 
+    def test_nonfinite_pattern_requires_infinity_sign_to_match(self):
+        expected = np.array([np.nan, np.inf, -np.inf, 1.0], dtype=np.float32)
+        same = np.array([np.nan, np.inf, -np.inf, 2.0], dtype=np.float32)
+        flipped = np.array([np.nan, -np.inf, np.inf, 2.0], dtype=np.float32)
+        self.assertTrue(harness.same_nonfinite_pattern(same, expected))
+        self.assertFalse(harness.same_nonfinite_pattern(flipped, expected))
+
     def test_synthetic_graph_has_independent_unique_nonself_rows_and_is_seeded(self):
         def generate(seed):
             rng = np.random.default_rng(seed)
