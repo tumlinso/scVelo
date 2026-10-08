@@ -218,12 +218,16 @@ link-dependency evidence remains for the integration report.
 Implementation and validation status for this follow-on: the receipt-verified
 same-input C++ comparison and direct/Torch provider paths are implemented, and
 Torch supplies storage and transfers only. The C++/CUDA targets compiled
-successfully, and all 24 CPU contract tests passed. Those tests use a fake
-backend; no direct, Torch, or C++ resident path has yet completed an admitted
-GPU run. GPU numerical qualification, Compute Sanitizer, and resident
-performance measurements remain pending controller admission. The earlier
-native C++ probe results above are separate evidence and do not qualify these
-new Python-consumer paths.
+successfully, and all 24 CPU contract tests passed. Focused controller-admitted
+GPU qualification completed on 2026-10-08: native arithmetic and 13 binding
+tests passed (the host-only capability test was skipped). Direct, Torch, and
+C++ paths passed the predeclared moment gates on pancreas, dentate-gyrus, and
+CellRank slices plus the small signed/rectangular analytic case. Deterministic
+velocity coefficients, residuals, and selection masks passed the downstream
+gates on the real slices. These are common-oracle checks on identical inputs.
+Compute Sanitizer and the large synthetic performance campaign remain deferred;
+this follow-on makes no speedup claim. Evidence is saved under
+`/home/tumlinson/data/design-probes/resident-moments-20261008/`.
 
 CPU-only contract tests run with the probe environment:
 
